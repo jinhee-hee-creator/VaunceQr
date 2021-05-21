@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="46dp"
+        android:layout_marginLeft="610dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/logo" />
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="193dp"
+        android:src="@drawable/rectangle231" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="166dp"
+        android:layout_marginLeft="108dp"
+        android:text="사전등록고객"
+        android:fontFamily="@font/notosanscjkkr_bold"
+        android:textSize="36sp"
+        android:textColor="#E94A7E" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="211dp"
+        android:layout_marginLeft="108dp"
+        android:text="순번대기서비스"
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:textSize="52sp"
+        android:textColor="#FFF0F5" />
+
+
+    <FrameLayout
+        android:id="@+id/info"
+        android:layout_marginTop="348dp"
+        android:layout_marginLeft="80dp"
+        android:layout_width="640dp"
+        android:layout_height="380dp"
+        android:layout_centerHorizontal="true">
+
+
+        <SurfaceView
+            android:id="@+id/camera_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.example.vaunceqr.SquareView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="#7f000000"/>
+        <View
+            android:layout_width="270dp"
+            android:layout_height="270dp"
+            android:layout_gravity="center" />
+
+
+
+    </FrameLayout>
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/frame1"
+        android:layout_marginTop="623dp"
+        android:layout_marginLeft="487dp"/>
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/frame2"
+        android:layout_marginTop="623dp"
+        android:layout_marginLeft="267dp"/>
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/frame3"
+        android:layout_marginTop="403dp"
+        android:layout_marginLeft="487dp"/>
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/frame4"
+        android:layout_marginTop="403dp"
+        android:layout_marginLeft="267dp"/>
+
+
+    <TextView
+        android:id="@+id/code_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#00ffffff"
+        android:layout_below="@id/info" />
+
+    <ImageView
+        android:layout_width="450dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="833dp"
+        android:layout_marginLeft="175dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ment" />
+
+
+    <!-- <TextView
+         android:id="@+id/text"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="175dp"
+         android:layout_marginTop="833dp"
+         android:text="화면 카메라 영역에 사전등록 후 발급된 \n             QR코드를 인색해 주세요."
+         android:textColor="#EBEBEB"
+         android:textSize="28sp"
+         android:fontFamily="@font/notosanscjkkr_bold"/>-->
+</RelativeLayout>
