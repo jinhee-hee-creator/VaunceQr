@@ -1,9 +1,11 @@
 package com.example.vaunceqr;
 
 import android.Manifest;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+
 import android.view.Gravity;
 import android.view.SurfaceView;
 import android.view.View;
@@ -12,12 +14,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
+
+import java.util.List;
 
 import github.nisrulz.qreader.QRDataListener;
 import github.nisrulz.qreader.QREader;
@@ -34,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //화면꺼짐방지
+        //화면꺼짐방지
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
@@ -69,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
                             return;
                         }
                         qrEader.initAndStart(surfaceView);
+
+
                     }
 
                     @Override
@@ -89,20 +96,20 @@ public class MainActivity extends AppCompatActivity {
         surfaceView = (SurfaceView) findViewById(R.id.camera_view);
 
         setupQREader();
-
     }
 
     boolean isSync = false;
 
 
     private void setupQREader() {
+
         qrEader = new QREader.Builder(this, surfaceView, new QRDataListener() {
             @Override
             public void onDetected(final String data) {
                 text_result.post(new Runnable() {
                     @Override
                     public void run() {
-                        if (!isSync){
+                        if (!isSync) {
                             text_result.setText(data);
                             isSync = true;
                             showNewToast();
@@ -117,18 +124,21 @@ public class MainActivity extends AppCompatActivity {
             }
         }).facing(QREader.FRONT_CAM)
                 .enableAutofocus(true)
+
                 .height(surfaceView.getHeight())
                 .width(surfaceView.getWidth())
+
                 .build();
 
-  }
 
-    public void showNewToast (){
+    }
+
+    public void showNewToast() {
         Toast toast = new Toast(this);
-        View customView = getLayoutInflater().inflate(R.layout.popup,null);
+        View customView = getLayoutInflater().inflate(R.layout.popup, null);
         toast.setView(customView);
         toast.setDuration(Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER,0,0);
+        toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
 
         Handler handler = new Handler();
@@ -137,12 +147,11 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 isSync = false;
             }
-        },5000);
+        }, 5000);
 
-        Log.e(TAG,"토스트실행");
-        
+        Log.e(TAG, "토스트실행");
+
     }
-
 
 
     @Override

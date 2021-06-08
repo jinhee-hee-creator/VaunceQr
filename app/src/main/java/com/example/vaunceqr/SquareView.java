@@ -9,6 +9,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.ViewGroup;
 
 public class SquareView extends ViewGroup {
@@ -39,11 +40,14 @@ public class SquareView extends ViewGroup {
         return false;
     }
 
+
+
     @Override
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        int startWidth = 281;//하드코딩에서 상대적 데이터로 변경 필요
-        int startHeight = 83;//하드코딩에서 상대적 데이터로 변경 필요
+
+        int startWidth = 248;//하드코딩에서 상대적 데이터로 변경 필요
+        int startHeight = 248;//하드코딩에서 상대적 데이터로 변경 필요
         int squareSize = 405;//하드코딩에서 상대적 데이터로 변경 필요
         int viewportCornerRadius = 0;
         Paint eraser = new Paint();
